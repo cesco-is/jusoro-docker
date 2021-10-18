@@ -1,16 +1,22 @@
 #!/bin/bash
 if [ "$(ls -A /jusoro-app/jusoro)" ]; then
-  echo "Directory already."
+  echo "jusoro-app Directory already."
 else
-  echo "Directory do not exist" ;
+  echo "jusoro-app Directory do not exist" ;
   mkdir -p /jusoro-app
   cd /apptemp
   mv ./jusoro /jusoro-app
   chmod -R 755 /jusoro-app
   cd /
-  rm -rf /apptemp
 fi
 
-echo 'start -'
+if [ "$(ls -A /apptemp)" ]; then
+  echo "apptemp Directory already."
+  rm -rf /apptemp
+else
+  echo "apptemp Directory do not exist"
+fi
+
+echo 'start jusoro app'
 cd /jusoro-app/jusoro/bin
 ./startup.sh
