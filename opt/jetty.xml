@@ -115,6 +115,7 @@
 							<Item>-.-.-.-|/app/img/*</Item>
 							<Item>-.-.-.-|/app/css/*</Item>
 							<Item>-.-.-.-|/app/favicon.ico</Item>
+              <Item>-.-.-.-|/solr/*</Item>
 							<Item>172.16.109.80</Item>
 							
 							<!-- User define white list -->
