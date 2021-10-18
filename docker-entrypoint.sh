@@ -7,6 +7,8 @@ else
   cd /apptemp
   mv ./jusoro /jusoro-app
   chmod -R 755 /jusoro-app
+  cd /
+  rm -rf /apptemp
 fi
 
 echo 'start -'
