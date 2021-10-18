@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 SOLR_JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
 SOLR_TIMEZONE=KST-09:00:00
 
