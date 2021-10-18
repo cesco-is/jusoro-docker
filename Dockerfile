@@ -10,6 +10,13 @@ ENV APP_PATH /app/jusoro
 ENV APP_BIN_PATH ${APP_PATH}/bin
 ENV TZ=Asia/Seoul
 
+# java 경로 변경
+# solr root 실행 관련 로직 추가
+COPY opt/startup.sh /startup.sh
+
+# 관리자 ip 설정
+COPY opt/jetty.xml /jetty.xml
+
 # 폴더 생성
 RUN mkdir -p /tmp && mkdir -p /app
 
@@ -19,6 +26,8 @@ RUN wget -O \
       && tar zxvf /tmp/${DW_FILE_NAME} -C /app \
       && rm -r -f /tmp \
       && rm -r -f /app/jdk1.8.0_102_linux64 \
+      && mv -f /startup.sh ${APP_BIN_PATH}/startup.sh \
+      && mv -f /jetty.xml ${APP_PATH}/server/etc/jetty.xml \
       && chmod -R 755 /app
 
 # /app/datas : 주소 데이터
@@ -26,13 +35,6 @@ RUN wget -O \
 # /app/jusoro/server/etc : jetty 옵션 설정파일들
 # /app/jusoro/server/resources : 로그 옵션 설정파일들
 VOLUME ["/app/datas"]
-
-# java 경로 변경
-# solr root 실행 관련 로직 추가
-COPY opt/startup.sh ${APP_BIN_PATH}/startup.sh
-
-# 관리자 ip 설정
-COPY opt/jetty.xml ${APP_PATH}/server/etc/jetty.xml
 
 # port 오픈
 EXPOSE 8983
