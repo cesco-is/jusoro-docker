@@ -6,25 +6,22 @@
 
 ## 사용법
 
-1. docker build
+### docker build
 
 ```bash
 docker build --pull --rm -f "Dockerfile" -t jusorodockerize:latest "."
 ```
 
-2. docker run
+### docker run
 
 ```bash
-docker run -d -p 80:8983 --name jusorodockerize jusorodockerize:latest
+docker run -d -p 18983:8983 --name jusorodockerize jusorodockerize:latest
 ```
 
-3. option file 변경
+### volumes
 
     - 주요 파일 경로
-      - /app/datas : 주소 데이터
-      - /app/jusoro/server/logs : 로그
-      - /app/jusoro/server/etc : jetty 옵션 설정파일들
-      - /app/jusoro/server/resources : 로그 옵션 설정파일들
+      - /jusoro-app : 주소 및 색인 데이터 (해당 폴더를 백업하세요.)
 
 ## 기타
 

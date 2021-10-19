@@ -77,7 +77,7 @@
     <!-- =========================================================== -->
     <!-- RewriteHandle to redirect root to Solr                      -->
     <!-- =========================================================== -->
-     <New id="RewriteHandler" class="org.eclipse.jetty.rewrite.handler.RewriteHandler">
+    <New id="RewriteHandler" class="org.eclipse.jetty.rewrite.handler.RewriteHandler">
       <Set name="rewriteRequestURI">true</Set>
       <Set name="rewritePathInfo">false</Set>
       <Set name="originalPathAttribute">requestedPath</Set>
@@ -98,49 +98,48 @@
     <Set name="handler">
       <New id="Handlers" class="org.eclipse.jetty.server.handler.HandlerCollection">
         <Set name="handlers">
-         <Array type="org.eclipse.jetty.server.Handler">
+          <Array type="org.eclipse.jetty.server.Handler">
          
-			<!-- Restricting IPAccess -->
-			<Item>
-				<New id="IPAccessHandler" class="org.eclipse.jetty.server.handler.IPAccessHandler" >
-					<Set name="handler">
-						<New id="Contexts" class="org.eclipse.jetty.server.handler.ContextHandlerCollection" />
-					</Set>
-					<Set name="whiteListByPath">false</Set>
-					<Set name="white">
-						<Array type="String">
-							<!-- Do not change or remove this lists -->
-							<Item>-.-.-.-|/app/search/*</Item>
-							<Item>-.-.-.-|/app/js/*</Item>
-							<Item>-.-.-.-|/app/img/*</Item>
-							<Item>-.-.-.-|/app/css/*</Item>
-							<Item>-.-.-.-|/app/favicon.ico</Item>
-              <Item>-.-.-.-|/solr/*</Item>
-							<Item>172.16.109.80</Item>
-							
-							<!-- User define white list -->
-							<!--
-							<Item>add admin IP here</Item>
-							-->
-						</Array>
-					</Set>
-				</New>
-			</Item>
-			<!-- Restricting IPAccess -->
-         
-           <Item>
-             <Ref id="RewriteHandler"/>
-           </Item>
-           <Item>
-             <New id="Contexts" class="org.eclipse.jetty.server.handler.ContextHandlerCollection"/>
-           </Item>
-           <Item>
-             <New id="DefaultHandler" class="org.eclipse.jetty.server.handler.DefaultHandler"/>
-           </Item>
-           <Item>
-             <New id="RequestLog" class="org.eclipse.jetty.server.handler.RequestLogHandler"/>
-           </Item>
-         </Array>
+            <!-- Restricting IPAccess -->
+            <Item>
+              <New id="IPAccessHandler" class="org.eclipse.jetty.server.handler.IPAccessHandler" >
+                <Set name="handler">
+                  <New id="Contexts" class="org.eclipse.jetty.server.handler.ContextHandlerCollection" />
+                </Set>
+                <Set name="whiteListByPath">false</Set>
+                <Set name="white">
+                  <Array type="String">
+                    <!-- Do not change or remove this lists -->
+                    <Item>-.-.-.-|/app/search/*</Item>
+                    <Item>-.-.-.-|/app/js/*</Item>
+                    <Item>-.-.-.-|/app/img/*</Item>
+                    <Item>-.-.-.-|/app/css/*</Item>
+                    <Item>-.-.-.-|/app/favicon.ico</Item>
+                    <Item>-.-.-.-|/solr/*</Item>
+                    <Item>127.0.0.1</Item>
+                    <!-- User define white list -->
+                    <!--
+                    <Item>add admin IP here</Item>
+                    -->
+                  </Array>
+                </Set>
+              </New>
+            </Item>
+            <!-- Restricting IPAccess -->
+          
+            <Item>
+              <Ref id="RewriteHandler"/>
+            </Item>
+            <Item>
+              <New id="Contexts" class="org.eclipse.jetty.server.handler.ContextHandlerCollection"/>
+            </Item>
+            <Item>
+              <New id="DefaultHandler" class="org.eclipse.jetty.server.handler.DefaultHandler"/>
+            </Item>
+            <Item>
+              <New id="RequestLog" class="org.eclipse.jetty.server.handler.RequestLogHandler"/>
+            </Item>
+          </Array>
         </Set>
       </New>
     </Set>
