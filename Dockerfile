@@ -10,7 +10,7 @@ RUN apk update \
       tzdata
 
 # 변수 설정
-ENV DW_FILE_NAME jusoro-2.0.0-linux64-internet.tar.gz
+ENV DW_FILE_NAME jusoro-2.1.0-linux64-internet.tar.gz
 ENV APP_PATH /apptemp/jusoro
 ENV APP_BIN_PATH ${APP_PATH}/bin
 # 날짜 셋팅
