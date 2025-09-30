@@ -26,7 +26,7 @@ RUN chmod +x /startup.sh /docker-entrypoint.sh
 RUN mkdir -p /tmp /apptemp \
     && wget -O /tmp/${DW_FILE_NAME} \
       "https://www.juso.go.kr/dn.do?fileName=${DW_FILE_NAME}&realFileName=${DW_FILE_NAME}&reqType=jusoro&gubun=jusoro&ctprvnCd=LINUX&stdde=LINUX64" \
-    && rm -rf /apptemp/jusoro \                    # 기존 디렉토리 정리
+    && rm -rf /apptemp/jusoro \
     && mkdir -p /apptemp \                         
     && tar zxvf /tmp/${DW_FILE_NAME} -C /apptemp \
     && mv -f /startup.sh ${APP_BIN_PATH}/startup.sh \
