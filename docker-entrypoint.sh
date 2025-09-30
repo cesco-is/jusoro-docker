@@ -15,7 +15,7 @@ fi
 # 기존 테이블 삭제
 if [ -d "/apptemp" ]; then
   echo "apptemp Directory already. Delete temp Directory."
-  rm -rf /apptemp
+  # rm -rf /apptemp
 else
   echo "apptemp Directory do not exist. Continue"
 fi
