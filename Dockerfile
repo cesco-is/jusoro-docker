@@ -9,7 +9,7 @@ RUN apk update && apk --no-cache add bash tzdata wget \
     && echo "Asia/Seoul" > /etc/timezone
 
 # 환경 변수
-ENV DW_FILE_NAME=jusoro-2.0.0-linux64-internet.tar.gz \
+ENV DW_FILE_NAME=jusoro-2.1.0-linux64-internet.tar.gz \
     APP_PATH=/apptemp/jusoro \
     APP_BIN_PATH=/apptemp/jusoro/bin \
     TZ=Asia/Seoul
